@@ -16,7 +16,7 @@ import imgPinkMais from '../assets/pink+.JPG'
 import imgCardAmor from '../assets/card_amor.jpg'
 import { getSeries } from '../data/seriesData'
 import { getMeetings } from '../data/meetingsData'
-import videoPastores from '../assets/NovoVideo.MOV'
+import videoPastores from '../assets/VideoComprimido.mp4'
 
 const backgroundImages = [HeroOne, HomeTwo, HomeThree]
 
