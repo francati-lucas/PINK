@@ -1,0 +1,34 @@
+.footer {
+  margin-top: auto;
+}
+
+.footer__pink-bar {
+  background-color: var(--accent-rose-mauve);
+}
+
+.footer__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.footer__logo {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+.footer__copyright {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: #ffffff;
+  opacity: 0.9;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

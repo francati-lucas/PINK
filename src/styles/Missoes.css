@@ -1,0 +1,319 @@
+.missoes-container {
+  width: 100%;
+  font-family: var(--sans);
+  color: var(--text-dark-charcoal);
+  background-color: var(--bg-warm-sand);
+}
+
+/* Hero Section */
+.missoes-hero {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  align-items: center;
+  gap: 60px;
+}
+
+.missoes-hero-content {
+  flex: 1.2;
+}
+
+.missoes-hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.missoes-hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent-rose-mauve);
+  margin-top: 15px;
+}
+
+.missoes-hero-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-dark-charcoal);
+  margin-bottom: 20px;
+}
+
+.missoes-hero-link {
+  color: var(--accent-rose-mauve);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.missoes-hero-link:hover {
+  text-decoration: underline;
+}
+
+.missoes-hero-video-wrapper {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(122, 83, 44, 0.15);
+  border: 4px solid #ffffff;
+  width: 100%;
+  max-width: 560px;
+}
+
+.missoes-hero-video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Modern Features Section */
+.missoes-features {
+  padding: 60px 20px 100px;
+  background: transparent;
+}
+
+.missoes-features-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.missoes-features-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 15px;
+}
+
+.missoes-features-line {
+  width: 80px;
+  height: 4px;
+  background: var(--accent-rose-mauve);
+  margin: 0 auto 20px;
+  border-radius: 4px;
+}
+
+.missoes-features-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-dark-charcoal);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.missoes-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.missoes-image-card {
+  border-radius: 24px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(122, 83, 44, 0.08);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+}
+
+.missoes-image-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(194, 122, 155, 0.2);
+}
+
+.missoes-image-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 1;
+}
+
+.missoes-image-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px 30px;
+  width: 100%;
+  text-align: left;
+}
+
+.missoes-image-card-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-family: var(--heading);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.missoes-image-card-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Info Section */
+.missoes-info-section {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.missoes-info-card {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(122, 83, 44, 0.06);
+}
+
+.missoes-info-content {
+  flex: 2.5;
+  background-color: #ffffff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.missoes-info-text p {
+  font-size: 1rem;
+  color: var(--text-dark-charcoal);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.missoes-info-contact {
+  margin-top: 40px;
+}
+
+.missoes-info-contact p {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.missoes-form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.missoes-select {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(122, 83, 44, 0.15);
+  background: var(--bg-warm-sand);
+  flex: 1;
+  min-width: 200px;
+  color: var(--text-dark-charcoal);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.missoes-select:focus {
+  outline: none;
+  border-color: var(--accent-rose-mauve);
+}
+
+.missoes-button {
+  background-color: var(--accent-rose-mauve);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.missoes-button:hover {
+  background-color: var(--primary-gold-brown);
+}
+
+.missoes-info-pink {
+  flex: 1;
+  background-color: var(--accent-rose-mauve);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-width: 250px;
+}
+
+.missoes-info-pink span {
+  font-size: 9rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.4);
+  transform: rotate(90deg);
+  letter-spacing: 5px;
+  position: absolute;
+  user-select: none;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .missoes-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .missoes-hero-title {
+    font-size: 2.4rem;
+    line-height: 1.15;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .missoes-features-title {
+    font-size: 2.2rem;
+    line-height: 1.12;
+  }
+  
+  .missoes-hero-bg-square {
+    top: 20px;
+    left: 5%;
+    width: 90%;
+  }
+
+  .missoes-banner-title {
+    font-size: 2.5rem;
+  }
+
+  .missoes-info-card {
+    flex-direction: column;
+  }
+  
+  .missoes-info-pink {
+    height: 150px;
+  }
+  
+  .missoes-info-pink span {
+    transform: none;
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .missoes-info-content {
+    padding: 30px 20px;
+  }
+}

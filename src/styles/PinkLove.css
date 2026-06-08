@@ -1,0 +1,288 @@
+.pink-love-page {
+  background-color: var(--bg-warm-sand);
+  min-height: 100vh;
+  font-family: var(--sans);
+}
+
+/* ── Hero ── */
+.pink-love-hero {
+  padding: 130px 20px 90px;
+  text-align: center;
+  background-color: #E1D5C6;
+  border-bottom: 1.5px solid rgba(140, 99, 60, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.pink-love-hero::before {
+  content: 'LOVE';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 13rem;
+  font-weight: 900;
+  color: rgba(140, 99, 60, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 20px;
+}
+
+.pink-love-hero h1 {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.pink-love-hero p {
+  font-size: 1.15rem;
+  color: var(--text-dark-charcoal);
+  max-width: 640px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.pink-love-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-rose-mauve);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 40px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(194, 122, 155, 0.2);
+  transition: all 0.25s ease;
+}
+
+.pink-love-cta-btn:hover {
+  background: var(--primary-gold-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(122, 83, 44, 0.25);
+}
+
+/* ── Container ── */
+.pink-love-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Alvos ── */
+.pink-love-alvos {
+  padding: 90px 0;
+  border-bottom: 1px solid rgba(140, 99, 60, 0.08);
+}
+
+.pink-love-intro-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.pink-love-intro-text h2 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 20px;
+}
+
+.pink-love-intro-text p {
+  font-size: 1.1rem;
+  color: var(--text-dark-charcoal);
+  line-height: 1.75;
+}
+
+.pink-love-alvos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.alvo-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  border: 1px solid rgba(140, 99, 60, 0.08);
+  box-shadow: 0 4px 15px rgba(122, 83, 44, 0.03);
+  transition: transform 0.3s;
+}
+
+.alvo-card:hover {
+  transform: translateY(-4px);
+}
+
+.alvo-number {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent-rose-mauve);
+  font-family: var(--heading);
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.alvo-card h3 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 10px;
+}
+
+.alvo-card p {
+  font-size: 0.9rem;
+  color: var(--text-dark-charcoal);
+  line-height: 1.5;
+}
+
+/* ── Gallery ── */
+.pink-love-gallery {
+  padding: 90px 0;
+  background-color: #ffffff;
+}
+
+.gallery-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.gallery-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-dark-charcoal);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 30px;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-thumbnail {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid rgba(140, 99, 60, 0.1);
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--accent-rose-mauve);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(194, 122, 155, 0.4);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.video-thumbnail:hover .play-button-overlay {
+  transform: translate(-50%, -50%) scale(1.08);
+  background-color: var(--primary-gold-brown);
+}
+
+.gallery-photo {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  border: 1px solid rgba(140, 99, 60, 0.1);
+  transition: transform 0.3s;
+}
+
+.gallery-photo:hover {
+  transform: scale(1.02);
+}
+
+.gallery-caption {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-gold-brown);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ── CTA Bottom ── */
+.pink-love-cta-bottom {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: var(--bg-warm-sand);
+  border-top: 1px solid rgba(140, 99, 60, 0.08);
+}
+
+.pink-love-cta-bottom h2 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 20px;
+}
+
+.pink-love-cta-bottom p {
+  font-size: 1.1rem;
+  color: var(--text-dark-charcoal);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .video-thumbnail, .gallery-photo {
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pink-love-hero h1 {
+    font-size: 2.6rem;
+  }
+  .pink-love-hero::before {
+    font-size: 7rem;
+  }
+  .pink-love-intro-text h2 {
+    font-size: 2rem;
+  }
+  .gallery-title {
+    font-size: 2rem;
+  }
+  .pink-love-cta-bottom h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,52 @@
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  min-height: 70vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  color: #d34f7a;
+  margin-bottom: 16px;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: #6b6375;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.placeholder-card {
+  background: #f9f9f9;
+  border: 1px dashed #d34f7a;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #6b6375;
+}
+
+.placeholder-card h3 {
+  color: #d34f7a;
+  margin-bottom: 10px;
+}

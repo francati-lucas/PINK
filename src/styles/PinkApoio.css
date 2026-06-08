@@ -1,0 +1,286 @@
+.pink-apoio-container {
+  background-color: var(--bg-warm-sand);
+  min-height: 100vh;
+  font-family: var(--sans);
+}
+
+/* ── Hero ── */
+.pink-apoio-hero {
+  padding: 120px 20px 80px;
+  text-align: center;
+  background-color: #E1D5C6;
+  border-bottom: 1.5px solid rgba(140, 99, 60, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.pink-apoio-hero::before {
+  content: 'APOIO';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 13rem;
+  font-weight: 900;
+  color: rgba(140, 99, 60, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 20px;
+}
+
+.pink-apoio-hero-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent-rose-mauve);
+  margin-bottom: 24px;
+}
+
+.pink-apoio-hero h1 {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.pink-apoio-hero h1 span {
+  color: var(--accent-rose-mauve);
+}
+
+.pink-apoio-hero-desc {
+  font-size: 1.1rem;
+  color: var(--text-dark-charcoal);
+  max-width: 720px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+.pink-apoio-hero-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-rose-mauve);
+  margin: 0 auto;
+  border-radius: 99px;
+}
+
+/* ── Cards Section ── */
+.pink-apoio-grid-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.pink-apoio-section-label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 50px;
+  letter-spacing: -0.5px;
+}
+
+.pink-apoio-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 36px;
+}
+
+.pink-apoio-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(122, 83, 44, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  border: 1px solid rgba(122, 83, 44, 0.08);
+}
+
+.pink-apoio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(194, 122, 155, 0.15);
+  border-color: var(--accent-rose-mauve);
+}
+
+.pink-apoio-card-img {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.pink-apoio-card-body {
+  padding: 32px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.pink-apoio-card-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 12px;
+}
+
+.pink-apoio-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-dark-charcoal);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.pink-apoio-card-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-rose-mauve);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.pink-apoio-card-link::after {
+  content: ' →';
+  transition: transform 0.2s;
+}
+
+.pink-apoio-card-link:hover {
+  color: var(--primary-gold-brown);
+}
+
+.pink-apoio-card-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* ── Values ── */
+.pink-apoio-values {
+  background-color: var(--primary-gold-brown);
+  color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.pink-apoio-values h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-family: var(--heading);
+  margin-bottom: 50px;
+}
+
+.pink-apoio-values-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.pink-apoio-value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pink-apoio-value-number {
+  font-size: 4rem;
+  font-weight: 900;
+  font-family: var(--heading);
+  line-height: 1;
+  color: #E1D5C6;
+}
+
+.pink-apoio-value-item-cross .pink-apoio-value-number {
+  font-size: 4.2rem;
+  font-weight: 400;
+}
+
+.pink-apoio-value-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── CTA ── */
+.pink-apoio-cta {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: var(--bg-warm-sand);
+}
+
+.pink-apoio-cta h2 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  margin-bottom: 20px;
+}
+
+.pink-apoio-cta p {
+  font-size: 1.1rem;
+  color: var(--text-dark-charcoal);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.pink-apoio-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-rose-mauve);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 40px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(194, 122, 155, 0.2);
+  transition: all 0.25s ease;
+}
+
+.pink-apoio-cta-btn:hover {
+  background: var(--primary-gold-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(122, 83, 44, 0.25);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pink-apoio-hero h1 {
+    font-size: 2.6rem;
+  }
+  .pink-apoio-hero::before {
+    font-size: 7rem;
+  }
+  .pink-apoio-values-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .pink-apoio-values h2 {
+    font-size: 1.8rem;
+  }
+  .pink-apoio-cta h2 {
+    font-size: 2rem;
+  }
+}
