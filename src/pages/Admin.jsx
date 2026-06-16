@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 import { getSeries, addSerie, updateSerie, deleteSerie } from '../data/seriesData'
 import { getMeetings, updateMeeting } from '../data/meetingsData'
+import { auth } from '../firebase'
+import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
 import '../styles/Admin.css'
 
 const EMPTY_FORM = { titulo: '', descricao: '', imagem: '', tag: '', destaque: false }
 const EMPTY_MEETING_FORM = { city: '', schedule: '', badge: '' }
 
 const Admin = () => {
+  const [user, setUser] = useState(null)
+  const [loadingAuth, setLoadingAuth] = useState(true)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loginError, setLoginError] = useState('')
+  const [loggingIn, setLoggingIn] = useState(false)
+
   const [activeTab, setActiveTab] = useState('series')
   const [series, setSeries] = useState([])
   const [meetings, setMeetings] = useState([])
@@ -21,6 +30,17 @@ const Admin = () => {
   const [msg, setMsg] = useState('')
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser)
+      setLoadingAuth(false)
+      if (currentUser) {
+        load()
+      }
+    })
+    return () => unsubscribe()
+  }, [])
 
   const load = async () => {
     setLoading(true)
@@ -45,7 +65,27 @@ const Admin = () => {
     setLoading(false)
   }
 
-  useEffect(() => { load() }, [])
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    setLoginError('')
+    setLoggingIn(true)
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+    } catch (error) {
+      console.error(error)
+      setLoginError('E-mail ou senha incorretos.')
+    } finally {
+      setLoggingIn(false)
+    }
+  }
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth)
+    } catch (error) {
+      console.error("Erro ao fazer logout", error)
+    }
+  }
 
   const flash = (text) => { setMsg(text); setTimeout(() => setMsg(''), 4000) }
 
@@ -142,6 +182,58 @@ const Admin = () => {
     setShowMeetingForm(false)
   }
 
+  if (loadingAuth) {
+    return (
+      <div className="admin-loading-screen">
+        <div className="admin-spinner"></div>
+        <p>Carregando painel...</p>
+      </div>
+    )
+  }
+
+  if (!user) {
+    return (
+      <div className="login-container">
+        <div className="login-card">
+          <div className="login-logo">
+            <span className="login-logo-pink">PINK</span>
+            <span className="login-logo-sub">Mulheres com Propósito</span>
+          </div>
+          <div className="login-header">
+            <h2>Acesso Restrito</h2>
+            <p>Faça login para gerenciar o conteúdo</p>
+          </div>
+          <form onSubmit={handleLogin} className="login-form">
+            <div className="login-field">
+              <label>E-mail</label>
+              <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                placeholder="admin@pink.com"
+                required 
+              />
+            </div>
+            <div className="login-field">
+              <label>Senha</label>
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                placeholder="••••••••"
+                required 
+              />
+            </div>
+            {loginError && <div className="login-error">{loginError}</div>}
+            <button type="submit" className="login-btn-submit" disabled={loggingIn}>
+              {loggingIn ? 'Entrando...' : 'Entrar'}
+            </button>
+          </form>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <main className="admin-container">
       <div className="admin-header">
@@ -149,9 +241,12 @@ const Admin = () => {
           <h1 className="admin-title">Painel de Controle</h1>
           <p className="admin-subtitle">Gerencie o conteúdo do site da PINK.</p>
         </div>
-        {activeTab === 'series' && !showForm && (
-          <button className="admin-btn-new" onClick={() => setShowForm(true)}>+ Nova Série</button>
-        )}
+        <div className="admin-header-actions">
+          {activeTab === 'series' && !showForm && (
+            <button className="admin-btn-new" onClick={() => setShowForm(true)}>+ Nova Série</button>
+          )}
+          <button className="admin-btn-logout" onClick={handleLogout}>Sair</button>
+        </div>
       </div>
 
       <div className="admin-tabs">
