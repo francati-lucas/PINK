@@ -38,14 +38,14 @@ const Header = () => {
           <Link to="/missoes" className="header__nav-link" onClick={() => setIsOpen(false)}>
             Missões
           </Link>
-          <Link to="/pink-mais-perto" className="header__nav-link" onClick={() => setIsOpen(false)}>
+          {/* <Link to="/pink-mais-perto" className="header__nav-link" onClick={() => setIsOpen(false)}>
             Mentoria PMP
-          </Link>
+          </Link> */}
           <Link to="/pink-apoio" className="header__nav-link" onClick={() => setIsOpen(false)}>
             PINK Apoio
           </Link>
           <Link to="/pink-home" className="header__nav-link" onClick={() => setIsOpen(false)}>
-            PINK Home
+            PINK mais perto
           </Link>
           <Link to="/pink-love" className="header__nav-link" onClick={() => setIsOpen(false)}>
             PINK Love

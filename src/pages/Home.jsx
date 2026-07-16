@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 import '../styles/Home.css'
 import '../styles/Series.css'
-import HeroOne from '../assets/HomeOne.png'
-import HomeTwo from '../assets/HomeTwo.jpg'
+import HeroOne from '../assets/5.JPEG'
+import HomeTwo from '../assets/6.JPEG'
 import HomeThree from '../assets/HomeTrhee.png'
 import imgCampinas from '../assets/campinas.jpg'
 import imgGurupi from '../assets/gurupi.jpg'
@@ -14,6 +14,7 @@ import imgQuemE from '../assets/QuemE.png'
 import imgJessica from '../assets/mentoria_jessica.png'
 import imgPinkMais from '../assets/pink+.JPG'
 import imgCardAmor from '../assets/card_amor.jpg'
+import imgLiderCampinas from '../assets/9.JPEG'
 import { getSeries } from '../data/seriesData'
 import { getMeetings } from '../data/meetingsData'
 import videoPastores from '../assets/VideoComprimido.mp4'
@@ -23,7 +24,7 @@ const backgroundImages = [HeroOne, HomeTwo, HomeThree]
 const cityExtraData = {
   campinas: {
     leaderName: 'Jordania, Nadja, Marta e Eidy',
-    leaderPhoto: imgQuemE,
+    leaderPhoto: imgLiderCampinas,
     meetingPhotos: [imgCampinas, imgPinkMais, imgCardAmor]
   },
   gurupi: {
@@ -179,7 +180,7 @@ const Home = () => {
                 </p>
                 <div className="about-buttons">
                   <button className="btn-outline-pink" onClick={() => window.open('https://wa.me/5519995516247?text=Olá! Gostaria de falar com a PINK.', '_blank')}>Fale com o Pink</button>
-                  <button className="about-button" onClick={() => navigate('/pink-mais-perto')}>Conheça nossa mentoria</button>
+                  <button className="about-button" onClick={() => navigate('/pink-home')}>Conheça o PINK mais perto</button>
                 </div>
               </div>
 
@@ -225,7 +226,7 @@ const Home = () => {
               <h2>Nossos encontros</h2>
               <p className="meetings-subtitle">
                 Os encontros do PINK ocorrem 1 vez por mês. Saiba mais a respeito da sua cidade ou região abaixo ou entre em contato conosco.
-                <br /><a href="#" onClick={(e) => { e.preventDefault(); navigate('/pink-mais-perto'); }}>Sua cidade pode ser a próxima, saiba mais.</a>
+                <br /><a href="#" onClick={(e) => { e.preventDefault(); navigate('/pink-home'); }}>Sua cidade pode ser a próxima, saiba mais.</a>
               </p>
             </div>
 
@@ -338,8 +339,8 @@ const Home = () => {
               {/* Liderança Local */}
               {cityExtraData[selectedMeeting.key] && (
                 <div className="city-modal-leader">
-                  <div 
-                    className="city-modal-leader-img" 
+                  <div
+                    className="city-modal-leader-img"
                     style={{ backgroundImage: `url(${cityExtraData[selectedMeeting.key].leaderPhoto})` }}
                   />
                   <div className="city-modal-leader-info">
@@ -355,9 +356,9 @@ const Home = () => {
                   <h4 className="city-modal-gallery-title">Registros dos Encontros</h4>
                   <div className="city-modal-gallery-grid">
                     {cityExtraData[selectedMeeting.key].meetingPhotos.map((photo, i) => (
-                      <div 
-                        key={i} 
-                        className="city-modal-gallery-img" 
+                      <div
+                        key={i}
+                        className="city-modal-gallery-img"
                         style={{ backgroundImage: `url(${photo})` }}
                         onClick={() => setActivePhoto(photo)}
                       />

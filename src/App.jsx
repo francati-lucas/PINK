@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Missoes from './pages/Missoes.jsx'
-import PinkMaisPerto from './pages/PinkMaisPerto.jsx'
+// import PinkMaisPerto from './pages/PinkMaisPerto.jsx'
 import PinkApoio from './pages/PinkApoio.jsx'
 import Series from './pages/Series.jsx'
 import Loja from './pages/Loja.jsx'
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/missoes" element={<Missoes />} />
-        <Route path="/pink-mais-perto" element={<PinkMaisPerto />} />
+        {/* <Route path="/pink-mais-perto" element={<PinkMaisPerto />} /> */}
         <Route path="/pink-apoio" element={<PinkApoio />} />
         <Route path="/series" element={<Series />} />
         <Route path="/loja" element={<Loja />} />
