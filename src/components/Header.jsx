@@ -45,7 +45,7 @@ const Header = () => {
             PINK Apoio
           </Link>
           <Link to="/pink-home" className="header__nav-link" onClick={() => setIsOpen(false)}>
-            PINK mais perto
+            PINK Home
           </Link>
           <Link to="/pink-love" className="header__nav-link" onClick={() => setIsOpen(false)}>
             PINK Love

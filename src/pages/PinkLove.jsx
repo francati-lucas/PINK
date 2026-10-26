@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import '../styles/PinkLove.css';
-import minRecepcao from '../assets/min_recepcao.jpg';
-import minMidias from '../assets/min_midias.jpg';
-import minIntercessao from '../assets/min_intercessao.jpg';
+import imgPinkL1 from '../assets/PinkL.jpg';
+import imgPinkL3 from '../assets/PinkL3.jpg';
+import imgPinkL4 from '../assets/PinkL4.jpg';
 
 const alvos = [
   {
@@ -67,31 +67,18 @@ const PinkLove = () => {
       {/* ── Media Gallery Placeholders ── */}
       <section className="pink-love-gallery">
         <div className="pink-love-container">
-          <h2 className="gallery-title">Edições Anteriores</h2>
-          <p className="gallery-subtitle">Um gostinho de tudo o que Deus já fez e continuará fazendo.</p>
+          <h2 className="gallery-title">Como foi nossa última edição</h2>
+          <p className="gallery-subtitle">Um gostinho de tudo o que Deus já fez e continuará fazendo na Conferência PINK LOVE.</p>
 
           <div className="gallery-grid">
-            {/* Styled Video Player Placeholder */}
-            <div className="gallery-item video-item">
-              <div className="video-thumbnail" style={{ backgroundImage: `url(${minMidias})` }}>
-                <div className="play-button-overlay">
-                  <svg viewBox="0 0 24 24" width="48" height="48" fill="#ffffff">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-              <span className="gallery-caption">Assista ao Teaser Oficial</span>
-            </div>
-
-            {/* Photo grid elements */}
             <div className="gallery-item photo-item">
-              <div className="gallery-photo" style={{ backgroundImage: `url(${minRecepcao})` }} />
-              <span className="gallery-caption">Conexão & Comunidade</span>
+              <div className="gallery-photo" style={{ backgroundImage: `url(${imgPinkL1})` }} />
             </div>
-
             <div className="gallery-item photo-item">
-              <div className="gallery-photo" style={{ backgroundImage: `url(${minIntercessao})` }} />
-              <span className="gallery-caption">Adoração Coletiva</span>
+              <div className="gallery-photo" style={{ backgroundImage: `url(${imgPinkL3})` }} />
+            </div>
+            <div className="gallery-item photo-item">
+              <div className="gallery-photo" style={{ backgroundImage: `url(${imgPinkL4})` }} />
             </div>
           </div>
         </div>

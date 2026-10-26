@@ -7,12 +7,12 @@ const depoimentos = [
   {
     name: 'Ana Carolina',
     city: 'Campinas - SP',
-    text: 'Abrir a minha casa para o PINK mais perto foi uma experiência incrível. Minhas amigas e vizinhas que não costumavam ir à igreja se sentiram super acolhidas na minha sala. Foi uma noite de cura, risos e de Deus nos visitando de forma muito íntima.'
+    text: 'Abrir a minha casa para o PINK Home foi uma experiência incrível. Minhas amigas e vizinhas que não costumavam ir à igreja se sentiram super acolhidas na minha sala. Foi uma noite de cura, risos e de Deus nos visitando de forma muito íntima.'
   },
   {
     name: 'Mariana Costa',
     city: 'Gurupi - TO',
-    text: 'O formato do PINK mais perto quebra barreiras. A equipe veio com muito carinho, trouxe a palavra e pudemos compartilhar nossos desafios comendo um bolo juntas. Três amigas começaram a caminhar firme na fé depois desse dia!'
+    text: 'O formato do PINK Home quebra barreiras. A equipe veio com muito carinho, trouxe a palavra e pudemos compartilhar nossos desafios comendo um bolo juntas. Três amigas começaram a caminhar firme na fé depois desse dia!'
   },
   {
     name: 'Larissa Santos',
@@ -34,7 +34,7 @@ const PinkHome = () => {
         <h1>Nós levamos o PINK até você</h1>
         <p>Você abre a sua casa, e nós trazemos o Encontro PINK para você e suas amigas.</p>
         <a
-          href="https://wa.me/5519995516247?text=Olá! Quero levar o PINK mais perto para a minha casa e gostaria de saber como funciona."
+          href="https://wa.me/5519995516247?text=Olá! Quero levar o PINK Home para a minha casa e gostaria de saber como funciona."
           target="_blank"
           rel="noopener noreferrer"
           className="pink-home-btn"
@@ -47,9 +47,9 @@ const PinkHome = () => {
       <section className="pink-home-about">
         <div className="pink-home-container pink-home-grid">
           <div className="pink-home-content">
-            <h2>Como funciona o PINK mais perto?</h2>
+            <h2>Como funciona o PINK Home?</h2>
             <p>
-              O PINK mais perto nasceu com o desejo de criar conexões seguras e íntimas. Muitas vezes, uma amiga ou familiar hesita em entrar em um templo religioso, mas aceitaria com alegria um convite para tomar um café na sua sala.
+              O PINK Home nasceu com o desejo de criar conexões seguras e íntimas. Muitas vezes, uma amiga ou familiar hesita em entrar em um templo religioso, mas aceitaria com alegria um convite para tomar um café na sua sala.
             </p>
             <p>
               O processo é muito simples:
@@ -78,7 +78,7 @@ const PinkHome = () => {
       <section className="pink-home-testimonials">
         <div className="pink-home-container">
           <h2 className="pink-home-centered-title">Depoimentos de quem já recebeu</h2>
-          <p className="pink-home-centered-subtitle">Veja a experiência de mulheres que abriram suas portas para o PINK mais perto.</p>
+          <p className="pink-home-centered-subtitle">Veja a experiência de mulheres que abriram suas portas para o PINK Home.</p>
 
           <div className="pink-home-testimonials-grid">
             {depoimentos.map((d, index) => (
@@ -98,9 +98,9 @@ const PinkHome = () => {
       {/* ── CTA Final ── */}
       <section className="pink-home-cta-bottom">
         <h2>Pronta para abrir as portas para o novo?</h2>
-        <p>Clique abaixo para falar conosco no WhatsApp e agendar um PINK mais perto na sua casa.</p>
+        <p>Clique abaixo para falar conosco no WhatsApp e agendar um PINK Home na sua casa.</p>
         <a
-          href="https://wa.me/5519995516247?text=Olá! Quero levar o PINK mais perto para a minha casa e gostaria de saber como funciona."
+          href="https://wa.me/5519995516247?text=Olá! Quero levar o PINK Home para a minha casa e gostaria de saber como funciona."
           target="_blank"
           rel="noopener noreferrer"
           className="pink-home-btn"

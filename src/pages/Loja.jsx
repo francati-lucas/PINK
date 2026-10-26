@@ -1,8 +1,11 @@
-import imgLoja from '../assets/Loja.jpg'
+import imgCamisa from '../assets/Camisa.png'
+import imgLivro from '../assets/livro.png'
+import imgCopo from '../assets/Copo.png'
+import imgChaveiro from '../assets/Chaveiro.png'
 import '../styles/Loja.css'
 
 const Loja = () => {
-  // Array of 3 high-quality products representing the PINK movement catalog
+  // Array of high-quality products representing the PINK movement catalog
   const products = [
     {
       id: 1,
@@ -10,7 +13,7 @@ const Loja = () => {
       tag: 'Vestuário',
       price: 'R$ 89,90',
       description: 'Vista a nossa identidade! Camiseta confeccionada em material premium para você vestir o propósito no dia a dia.',
-      image: imgLoja
+      image: imgCamisa
     },
     {
       id: 2,
@@ -18,7 +21,7 @@ const Loja = () => {
       tag: 'Literatura',
       price: 'R$ 59,90',
       description: 'O livro oficial escrito pela fundadora Jordania Nargiz. Uma leitura transformadora sobre cura e conexões reais.',
-      image: imgLoja
+      image: imgLivro
     },
     {
       id: 3,
@@ -26,7 +29,15 @@ const Loja = () => {
       tag: 'Acessórios',
       price: 'R$ 45,00',
       description: 'Lindo copo personalizado do Movimento PINK para te acompanhar nos momentos de oração, estudo e rotina.',
-      image: imgLoja
+      image: imgCopo
+    },
+    {
+      id: 4,
+      title: 'Chaveiro Oficial',
+      tag: 'Acessórios',
+      price: 'R$ 25,00',
+      description: 'Leve o propósito sempre com você com este lindo chaveiro.',
+      image: imgChaveiro
     }
   ];
 

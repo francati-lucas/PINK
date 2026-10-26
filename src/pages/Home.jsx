@@ -10,11 +10,21 @@ import imgCampinas from '../assets/campinas.jpg'
 import imgGurupi from '../assets/gurupi.jpg'
 import imgParaupebas from '../assets/recife.jpg'
 import imgSerra from '../assets/serra.jpg'
-import imgQuemE from '../assets/QuemE.png'
+import imgQuemE from '../assets/Pink.jpg'
 import imgJessica from '../assets/mentoria_jessica.png'
 import imgPinkMais from '../assets/pink+.JPG'
 import imgCardAmor from '../assets/card_amor.jpg'
 import imgLiderCampinas from '../assets/9.JPEG'
+import imgSerraE from '../assets/SerraE.jpg'
+import imgSerraE2 from '../assets/SerraE2.jpg'
+import imgSerraE3 from '../assets/SerraE3.jpg'
+import imgParauapebasL from '../assets/ParauapebasL.jpg'
+import imgParauapebasE from '../assets/ParauapebasE.jpg'
+import imgParauapebasE2 from '../assets/ParauapebasE2.jpg'
+import imgParauapebasE3 from '../assets/ParauapebasE3.jpg'
+import imgGurupiL from '../assets/GurupiL.jpeg'
+import imgGurupiJ from '../assets/GurupiJ.jpeg'
+import imgSerraL from '../assets/SerraL.jpeg'
 import { getSeries } from '../data/seriesData'
 import { getMeetings } from '../data/meetingsData'
 import videoPastores from '../assets/VideoComprimido.mp4'
@@ -28,19 +38,19 @@ const cityExtraData = {
     meetingPhotos: [imgCampinas, imgPinkMais, imgCardAmor]
   },
   gurupi: {
-    leaderName: 'Líder Gurupi',
-    leaderPhoto: imgJessica,
-    meetingPhotos: [imgGurupi, imgPinkMais, imgCardAmor]
+    leaderName: 'Pra Jane Melo',
+    leaderPhoto: imgGurupiL,
+    meetingPhotos: [imgGurupiJ]
   },
   paraupebas: {
-    leaderName: 'Líder Paraupebas',
-    leaderPhoto: imgJessica,
-    meetingPhotos: [imgParaupebas, imgPinkMais, imgCardAmor]
+    leaderName: 'Fabrine',
+    leaderPhoto: imgParauapebasL,
+    meetingPhotos: [imgParauapebasE, imgParauapebasE2, imgParauapebasE3]
   },
   serra: {
-    leaderName: 'Líder Serra',
-    leaderPhoto: imgJessica,
-    meetingPhotos: [imgSerra, imgPinkMais, imgCardAmor]
+    leaderName: 'Rana',
+    leaderPhoto: imgSerraL,
+    meetingPhotos: [imgSerraE, imgSerraE2, imgSerraE3]
   }
 }
 
@@ -180,7 +190,7 @@ const Home = () => {
                 </p>
                 <div className="about-buttons">
                   <button className="btn-outline-pink" onClick={() => window.open('https://wa.me/5519995516247?text=Olá! Gostaria de falar com a PINK.', '_blank')}>Fale com o Pink</button>
-                  <button className="about-button" onClick={() => navigate('/pink-home')}>Conheça o PINK mais perto</button>
+                  <button className="about-button" onClick={() => navigate('/pink-home')}>Conheça o PINK Home</button>
                 </div>
               </div>
 
