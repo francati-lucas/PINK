@@ -86,8 +86,8 @@ const Missoes = () => {
         <div className="missoes-info-card">
           <div className="missoes-info-content">
             <div className="missoes-info-text">
-              <p>Missões são o coração do Evangelho em ação um chamado que Cristo deixou para todos os seus seguidores. Ao dizer "Ide por todo o mundo e pregai o evangelho a toda criatura"<br />(Marcos 16:15)</p>
-              <p>Ele nos lembrou que cada cristão é enviado como testemunha de sua graça e amor.</p>
+              <p>Missões são o coração do Evangelho em ação: um chamado que Cristo deixou para todos os seus seguidores.</p>
+              <p>Ao dizer "Ide por todo o mundo e pregai o evangelho a toda criatura" (Marcos 16:15), Ele nos lembrou que cada cristão é enviado como testemunha de sua graça e amor.</p>
               <p>Seja em terras distantes ou na comunidade local, o propósito é o mesmo: levar a mensagem de esperança, vida eterna e amor de Deus.</p>
               <p>Missões não são apenas um ato de ir, mas de amar, servir e transformar vidas para a glória de Deus.</p>
               <p><strong>Descubra o propósito que Deus tem para a sua vida! Venha conhecer mais sobre missões e como você pode ser instrumento do amor de Cristo!</strong></p>

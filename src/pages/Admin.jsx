@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebas
 import '../styles/Admin.css'
 
 const EMPTY_FORM = { titulo: '', descricao: '', imagem: '', tag: '', destaque: false }
-const EMPTY_MEETING_FORM = { city: '', schedule: '', badge: '' }
+const EMPTY_MEETING_FORM = { city: '', schedule: '', badge: '', instagram: '' }
 
 const Admin = () => {
   const [user, setUser] = useState(null)
@@ -170,6 +170,7 @@ const Admin = () => {
       city: meeting.city,
       schedule: meeting.schedule || '',
       badge: meeting.badge || '',
+      instagram: meeting.instagram || '',
       key: meeting.key || ''
     })
     setEditMeetingId(meeting.id)
@@ -393,8 +394,21 @@ const Admin = () => {
                     name="badge" 
                     value={meetingForm.badge} 
                     onChange={handleMeetingChange} 
-                    placeholder="Ex: Matriz (deixe em branco se não houver)" 
+                    placeholder="Ex: Matriz (deixe em branco se não houver)"
                   />
+                </div>
+
+                <div className="admin-field">
+                  <label>Instagram do PINK local</label>
+                  <input
+                    name="instagram"
+                    value={meetingForm.instagram}
+                    onChange={handleMeetingChange}
+                    placeholder="Ex: @pinkmovimento"
+                  />
+                  <small className="admin-field-hint">
+                    💡 Aparece no "Saiba mais" da cidade na página inicial. Deixe em branco se não houver.
+                  </small>
                 </div>
 
                 <div className="admin-form-actions">
@@ -422,6 +436,7 @@ const Admin = () => {
                     <th>Cidade</th>
                     <th>Horários / Datas</th>
                     <th>Selo (Badge)</th>
+                    <th>Instagram</th>
                     <th>Ações</th>
                   </tr>
                 </thead>
@@ -431,6 +446,7 @@ const Admin = () => {
                       <td className="admin-td-title">{m.city}</td>
                       <td>{m.schedule || '—'}</td>
                       <td>{m.badge ? <span className="admin-badge-yes">{m.badge}</span> : <span className="admin-badge-no">Nenhum</span>}</td>
+                      <td>{m.instagram || '—'}</td>
                       <td className="admin-td-actions">
                         <button className="admin-btn-edit" onClick={() => handleEditMeeting(m)}>Editar</button>
                       </td>

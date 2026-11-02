@@ -1,7 +1,7 @@
-import imgCamisa from '../assets/Camisa.png'
-import imgLivro from '../assets/livro.png'
-import imgCopo from '../assets/Copo.png'
-import imgChaveiro from '../assets/Chaveiro.png'
+import imgCamisa from '../assets/Camisa.jpg'
+import imgLivro from '../assets/livro.webp'
+import imgCopo from '../assets/Copo.jpg'
+import imgChaveiro from '../assets/Chaveiro.jpg'
 import '../styles/Loja.css'
 
 const Loja = () => {

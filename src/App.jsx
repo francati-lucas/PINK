@@ -12,6 +12,7 @@ import PinkHome from './pages/PinkHome.jsx'
 import PinkLove from './pages/PinkLove.jsx'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+import WhatsAppButton from './components/WhatsAppButton.jsx'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/pink-love" element={<PinkLove />} />
       </Routes>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }

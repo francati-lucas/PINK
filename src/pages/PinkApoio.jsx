@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import '../styles/PinkApoio.css';
-import minRecepcao from '../assets/min_recepcao.jpg';
-import minMidias from '../assets/min_midias.jpg';
-import minIntercessao from '../assets/min_intercessao.jpg';
+import minRecepcao from '../assets/min_recepcao.JPG';
+import minMidias from '../assets/min_midias.JPG';
+import minIntercessao from '../assets/min_intercessao.JPG';
 
 const equipes = [
   {
@@ -37,7 +37,7 @@ const PinkApoio = () => {
         <span className="pink-apoio-hero-tag">Desenvolvimento de Líderes</span>
         <h1>Cada dom tem um <span>lugar</span> aqui.</h1>
         <p className="pink-apoio-hero-desc">
-        Venha servir conosco em diversar equipes que preparam tudo para os encontros mensais. Desde a recepção, decoração, loja, PINK Café, Banda/Louvor e Muito mais. Coloque o seu dom de servir para abençoar mulheres no país inteiro.  
+        Venha servir conosco em diversas equipes que preparam tudo para os encontros mensais. Desde a recepção, decoração, loja, PINK Café, Banda/Louvor e Muito mais. Coloque o seu dom de servir para abençoar mulheres no país inteiro.  
         </p>
         <div className="pink-apoio-hero-line"></div>
       </section>

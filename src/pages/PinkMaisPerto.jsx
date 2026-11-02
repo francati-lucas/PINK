@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import '../styles/Mentoria.css';
 
 // Importing the gorgeous local images from assets folder
-import mentoriaBanner from '../assets/pink+.jpg';
-import mentoriaJessica from '../assets/mentoria_jessica.png';
-import HomeTrhee from '../assets/HomeTrhee.png';
-import HomeOne from '../assets/HomeOne.png';
-import QuemE from '../assets/QuemE.png';
-import imgLivro from '../assets/livro.png';
+import mentoriaBanner from '../assets/pink+.JPG';
+import mentoriaJessica from '../assets/mentoria_jessica.jpg';
+import HomeTrhee from '../assets/HomeTrhee.jpg';
+import HomeOne from '../assets/HomeOne.jpg';
+import QuemE from '../assets/QuemE.webp';
+import imgLivro from '../assets/livro.webp';
 
 const PinkMaisPerto = () => {
   useEffect(() => {

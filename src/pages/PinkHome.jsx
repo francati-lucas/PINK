@@ -59,7 +59,7 @@ const PinkHome = () => {
                 <strong>1. Você abre o espaço:</strong> Organiza a sua sala ou área social e prepara um café simples para receber as convidadas.
               </li>
               <li>
-                <strong>2. Você convida as amigas:</strong> Reúne de 3, 10 OU MAIS amigas, vizinhas ou familiares.
+                <strong>2. Você convida as amigas:</strong> Reúne de 3, 10 ou mais amigas, vizinhas ou familiares.
               </li>
               <li>
                 <strong>3. Nós levamos o Encontro:</strong> Uma líder do PINK vai até a sua casa para conduzir um momento especial com louvor, palavra, oração e dinâmica.

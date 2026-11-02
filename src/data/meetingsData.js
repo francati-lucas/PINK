@@ -33,6 +33,16 @@ const DEFAULT_MEETINGS = [
   }
 ]
 
+// Matriz (Campinas) primeiro, depois as demais cidades em ordem alfabética
+function sortMeetings(list) {
+  return [...list].sort((a, b) => {
+    const aMatriz = a.key === 'campinas' ? 0 : 1
+    const bMatriz = b.key === 'campinas' ? 0 : 1
+    if (aMatriz !== bMatriz) return aMatriz - bMatriz
+    return (a.city || '').localeCompare(b.city || '', 'pt-BR')
+  })
+}
+
 export async function getMeetings() {
   try {
     const snapshot = await getDocs(collection(db, COLLECTION))
@@ -80,10 +90,10 @@ export async function getMeetings() {
         list = snapshotReload.docs.map((d) => ({ id: d.id, ...d.data() }));
       }
     }
-    return list;
+    return sortMeetings(list);
   } catch (error) {
     console.error("Erro ao buscar encontros no Firestore:", error)
-    return DEFAULT_MEETINGS.map((m, index) => ({ id: `fallback-${index}`, ...m }))
+    return sortMeetings(DEFAULT_MEETINGS.map((m, index) => ({ id: `fallback-${index}`, ...m })))
   }
 }
 

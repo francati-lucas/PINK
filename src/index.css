@@ -62,6 +62,11 @@
   }
 }
 
+html {
+  /* Espaço do header fixo ao rolar até uma seção (ex.: "Nossos Encontros") */
+  scroll-padding-top: 90px;
+}
+
 body {
   margin: 0;
   background-color: var(--bg-warm-sand);

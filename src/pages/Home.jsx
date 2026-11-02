@@ -5,13 +5,12 @@ import '../styles/Home.css'
 import '../styles/Series.css'
 import HeroOne from '../assets/5.JPEG'
 import HomeTwo from '../assets/6.JPEG'
-import HomeThree from '../assets/HomeTrhee.png'
+import HomeThree from '../assets/HomeTrhee.jpg'
 import imgCampinas from '../assets/campinas.jpg'
 import imgGurupi from '../assets/gurupi.jpg'
 import imgParaupebas from '../assets/recife.jpg'
 import imgSerra from '../assets/serra.jpg'
-import imgQuemE from '../assets/Pink.jpg'
-import imgJessica from '../assets/mentoria_jessica.png'
+import imgQuemE from '../assets/9.JPEG'
 import imgPinkMais from '../assets/pink+.JPG'
 import imgCardAmor from '../assets/card_amor.jpg'
 import imgLiderCampinas from '../assets/9.JPEG'
@@ -31,26 +30,38 @@ import videoPastores from '../assets/VideoComprimido.mp4'
 
 const backgroundImages = [HeroOne, HomeTwo, HomeThree]
 
+const whatsappLink = (text) => `https://wa.me/5519995516247?text=${encodeURIComponent(text)}`
+
+const scrollToSection = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+
+// Aceita "@perfil", "perfil" ou o link completo do Instagram
+const instagramHandle = (value) =>
+  value.trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/[/?].*$/, '')
+
 const cityExtraData = {
   campinas: {
     leaderName: 'Jordania, Nadja, Marta e Eidy',
     leaderPhoto: imgLiderCampinas,
-    meetingPhotos: [imgCampinas, imgPinkMais, imgCardAmor]
+    meetingPhotos: [imgCampinas, imgPinkMais, imgCardAmor],
+    instagram: 'pinkmovimento'
   },
   gurupi: {
     leaderName: 'Pra Jane Melo',
     leaderPhoto: imgGurupiL,
-    meetingPhotos: [imgGurupiJ]
+    meetingPhotos: [imgGurupiJ],
+    instagram: 'pinkmovimentogurupi'
   },
   paraupebas: {
     leaderName: 'Fabrine',
     leaderPhoto: imgParauapebasL,
-    meetingPhotos: [imgParauapebasE, imgParauapebasE2, imgParauapebasE3]
+    meetingPhotos: [imgParauapebasE, imgParauapebasE2, imgParauapebasE3],
+    instagram: 'pinkparauapebas'
   },
   serra: {
     leaderName: 'Rana',
     leaderPhoto: imgSerraL,
-    meetingPhotos: [imgSerraE, imgSerraE2, imgSerraE3]
+    meetingPhotos: [imgSerraE, imgSerraE2, imgSerraE3],
+    instagram: 'pinkmovimentoserra'
   }
 }
 
@@ -61,7 +72,17 @@ const Home = () => {
   const [activePhoto, setActivePhoto] = useState(null)
   const [homeSeries, setHomeSeries] = useState([])
   const [meetingsList, setMeetingsList] = useState([])
+  const [newCity, setNewCity] = useState('')
   const navigate = useNavigate()
+
+  const handleNewCity = (e) => {
+    e.preventDefault()
+    const city = newCity.trim()
+    const text = city
+      ? `Olá! Gostaria de levar o PINK para a minha cidade: ${city}.`
+      : 'Olá! Gostaria de levar o PINK para a minha cidade.'
+    window.open(whatsappLink(text), '_blank', 'noopener,noreferrer')
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -111,6 +132,11 @@ const Home = () => {
     }
   }
 
+  // O Instagram cadastrado no admin tem prioridade sobre o padrão da cidade
+  const cityInstagram = selectedMeeting
+    ? instagramHandle(selectedMeeting.instagram || cityExtraData[selectedMeeting.key]?.instagram || '')
+    : ''
+
   return (
     <>
       <main>
@@ -144,14 +170,11 @@ const Home = () => {
 
           <div className="container">
             <div className="hero-content">
-              <h1>Bem vinda ao PINK</h1>
-              <h2>Aqui, você não está sozinha</h2>
-              <p>
-                Mulheres caminhando juntas para viver o propósito de Deus.
-              </p>
+              <h1>Bem-vinda ao PINK!</h1>
+              <h2>Aqui, você não está sozinha.</h2>
               <div className="hero-buttons">
-                <button className="btn btn-primary" onClick={() => document.getElementById('meetings')?.scrollIntoView({ behavior: 'smooth' })}>Nossos Encontros</button>
-                <button className="btn btn-secondary" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>Conhecer o PINK</button>
+                <button className="btn btn-primary" onClick={() => scrollToSection('about')}>Conhecer o PINK</button>
+                <button className="btn btn-secondary" onClick={() => scrollToSection('meetings')}>Nossos Encontros</button>
               </div>
             </div>
           </div>
@@ -166,6 +189,12 @@ const Home = () => {
               />
             ))}
           </div>
+
+          <button
+            className="hero-scroll"
+            onClick={() => scrollToSection('about')}
+            aria-label="Rolar para Quem é o PINK"
+          />
         </section>
 
         <section id="about" className="about">
@@ -188,10 +217,6 @@ const Home = () => {
                 <p>
                   Nós estamos quebrando e mudando isso. <strong>É possível, sim, ter amizades saudáveis e sem falsidade!</strong> Venha conhecer nossa comunidade e descubra por você mesma essa verdade.
                 </p>
-                <div className="about-buttons">
-                  <button className="btn-outline-pink" onClick={() => window.open('https://wa.me/5519995516247?text=Olá! Gostaria de falar com a PINK.', '_blank')}>Fale com o Pink</button>
-                  <button className="about-button" onClick={() => navigate('/pink-home')}>Conheça o PINK Home</button>
-                </div>
               </div>
 
               <div className="about-image">
@@ -199,6 +224,33 @@ const Home = () => {
                   className="image-frame"
                   style={{ backgroundImage: `url(${imgQuemE})` }}
                 />
+              </div>
+            </div>
+
+            <div className="formats">
+              <h3 className="formats-title">Como o PINK funciona hoje</h3>
+              <p className="formats-subtitle">Você pode viver o PINK em dois formatos:</p>
+
+              <div className="formats-grid">
+                <div className="format-card">
+                  <span className="format-number">01</span>
+                  <h4>Encontros mensais</h4>
+                  <p>
+                    Uma vez por mês, as mulheres de cada cidade se reúnem para um encontro com louvor, palavra,
+                    oração e comunhão, preparado com carinho pelas equipes do PINK Apoio.
+                  </p>
+                  <button className="btn-outline-pink" onClick={() => scrollToSection('meetings')}>Ver encontros</button>
+                </div>
+
+                <div className="format-card">
+                  <span className="format-number">02</span>
+                  <h4>PINK Home</h4>
+                  <p>
+                    Você abre a sua casa e convida amigas, vizinhas e familiares. Uma líder do PINK vai até vocês
+                    para conduzir um encontro especial, num ambiente íntimo e acolhedor.
+                  </p>
+                  <button className="about-button" onClick={() => navigate('/pink-home')}>Conhecer o PINK Home</button>
+                </div>
               </div>
             </div>
           </div>
@@ -209,13 +261,13 @@ const Home = () => {
             <div className="section-header">
               <h2>Nossos pastores</h2>
               <p className="history-subtitle">
-                Garo e Jordania Nargiz são os pastores fundadores do PINK.
+                Garo e Jordania Nargiz são os pastores do PINK.
               </p>
             </div>
 
             <p className="history-intro">
-              Ordenados pastores e líderes da igreja Assembleia de Deus nos Estados Unidos, eles têm como paixão mentoriar e formar líderes com propósito.
-              O PINK nasceu com o desejo de aproximar mulheres a Deus com propósito. Saiba mais no vídeo abaixo:
+              Ordenados pastores e líderes da igreja Assembleia de Deus nos Estados Unidos, eles têm como paixão mentorear e formar líderes com propósito.
+              Fundado pela pastora Jordania, o PINK nasceu com o desejo de aproximar mulheres a Deus com propósito. Saiba mais no vídeo abaixo:
             </p>
 
             <div className="history-video">
@@ -235,8 +287,7 @@ const Home = () => {
             <div className="section-header">
               <h2>Nossos encontros</h2>
               <p className="meetings-subtitle">
-                Os encontros do PINK ocorrem 1 vez por mês. Saiba mais a respeito da sua cidade ou região abaixo ou entre em contato conosco.
-                <br /><a href="#" onClick={(e) => { e.preventDefault(); navigate('/pink-home'); }}>Sua cidade pode ser a próxima, saiba mais.</a>
+                Os encontros do PINK ocorrem 1 vez por mês nas cidades abaixo. Entre em contato para participar!
               </p>
             </div>
 
@@ -256,10 +307,21 @@ const Home = () => {
               ))}
             </div>
 
-            <div className="meetings-cta">
-              <button className="btn btn-primary" onClick={() => window.open('https://wa.me/5519995516247?text=Olá! Gostaria de mais informações sobre os Encontros do PINK.', '_blank')}>
-                Entre em contato
-              </button>
+            <div className="new-city">
+              <h3>Quer o PINK na sua cidade?</h3>
+              <p>
+                Conte pra gente onde você mora e vamos conversar sobre como levar os encontros do PINK até aí.
+              </p>
+              <form className="new-city-form" onSubmit={handleNewCity}>
+                <input
+                  type="text"
+                  value={newCity}
+                  onChange={(e) => setNewCity(e.target.value)}
+                  placeholder="Sua cidade / estado"
+                  aria-label="Sua cidade"
+                />
+                <button type="submit" className="about-button">Quero o PINK aqui</button>
+              </form>
             </div>
           </div>
         </section>
@@ -344,6 +406,27 @@ const Home = () => {
                   <strong>Agenda:</strong>
                   <span>{selectedMeeting.schedule}</span>
                 </div>
+              </div>
+
+              <div className="city-modal-contact">
+                <a
+                  className="city-modal-btn"
+                  href={whatsappLink(`Olá! Gostaria de participar do encontro do PINK em ${selectedMeeting.city}.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Quero participar
+                </a>
+                {cityInstagram && (
+                  <a
+                    className="city-modal-btn city-modal-btn--outline"
+                    href={`https://www.instagram.com/${cityInstagram}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @{cityInstagram}
+                  </a>
+                )}
               </div>
 
               {/* Liderança Local */}

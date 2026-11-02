@@ -88,20 +88,38 @@
   z-index: 2;
 }
 
-/* Triângulo (lombada) na hero */
-.hero::after {
+/* Seta da hero: rola até "Quem é o PINK?" */
+.hero-scroll {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+  animation: bounceArrow 2s infinite;
+}
+
+.hero-scroll::after {
   content: '';
   position: absolute;
-  bottom: 15px;
-  /* Seta um pouco mais para cima */
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
   border-left: 24px solid transparent;
   border-right: 24px solid transparent;
   border-top: 24px solid #fff;
   /* Triângulo branco apontando para baixo */
-  z-index: 5;
-  animation: bounceArrow 2s infinite;
+}
+
+.hero-scroll:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+  border-radius: 8px;
 }
 
 @keyframes bounceArrow {
@@ -343,7 +361,7 @@
 }
 
 .about-card h3::before {
-  content: 'sobre nós';
+  content: 'Sobre Nós';
   display: block;
   font-family: var(--cursive);
   font-size: 2.2rem;
@@ -427,6 +445,70 @@
   border: 8px solid #ffffff;
 }
 
+/* Formatos do PINK (Encontros mensais / PINK Home) */
+.formats {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.formats-title {
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.formats-subtitle {
+  color: var(--text-dark-charcoal);
+  font-size: 1rem;
+  margin: 0 0 40px;
+}
+
+.formats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  text-align: left;
+}
+
+.format-card {
+  background: #ffffff;
+  padding: 40px 36px;
+  border-radius: 20px;
+  box-shadow: 0 18px 45px rgba(122, 83, 44, 0.08);
+  border: 1px solid rgba(140, 99, 60, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.format-number {
+  font-family: var(--heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent-rose-mauve);
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.format-card h4 {
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 0 0 14px;
+}
+
+.format-card p {
+  color: var(--text-dark-charcoal);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 0 28px;
+  flex: 1;
+}
+
 @media (max-width: 1024px) {
   .about-content {
     grid-template-columns: 1fr;
@@ -486,6 +568,43 @@
 
   .image-frame {
     height: 280px;
+  }
+
+  .formats {
+    margin-top: 60px;
+  }
+
+  .formats-title {
+    font-size: 1.9rem;
+  }
+
+  .formats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .format-card {
+    padding: 32px 24px;
+  }
+
+  .format-card button {
+    width: 100%;
+  }
+
+  .new-city {
+    padding: 32px 22px;
+  }
+
+  .new-city h3 {
+    font-size: 1.6rem;
+  }
+
+  .new-city-form {
+    flex-direction: column;
+  }
+
+  .new-city-form input {
+    max-width: none;
   }
 
   .series-header {
@@ -582,7 +701,7 @@
 }
 
 .history .section-header h2::before {
-  content: 'família e liderança';
+  content: 'Família e Liderança';
   display: block;
   font-family: var(--cursive);
   font-size: 2.2rem;
@@ -636,7 +755,7 @@
 }
 
 .meetings .section-header h2::before {
-  content: 'agenda';
+  content: 'Agenda';
   display: block;
   font-family: var(--cursive);
   font-size: 2.2rem;
@@ -678,6 +797,58 @@
   margin-top: 48px;
   display: flex;
   justify-content: center;
+}
+
+/* Levar o PINK para outra cidade */
+.new-city {
+  max-width: 760px;
+  margin: 60px auto 0;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 44px 40px;
+  box-shadow: 0 18px 45px rgba(122, 83, 44, 0.08);
+  border: 1px solid rgba(140, 99, 60, 0.08);
+  box-sizing: border-box;
+}
+
+.new-city h3 {
+  color: var(--primary-gold-brown);
+  font-family: var(--heading);
+  font-size: 1.9rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.new-city p {
+  color: var(--text-dark-charcoal);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.new-city-form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.new-city-form input {
+  flex: 1;
+  max-width: 340px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 2px solid rgba(140, 99, 60, 0.18);
+  background: var(--bg-warm-sand);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--text-dark-charcoal);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.new-city-form input:focus {
+  border-color: var(--accent-rose-mauve);
 }
 
 .meeting-card {
@@ -799,7 +970,7 @@
 }
 
 .series-header h2::before {
-  content: 'estudo e palavra';
+  content: 'Estudo e Palavra';
   display: block;
   font-family: var(--cursive);
   font-size: 2.2rem;
@@ -1042,6 +1213,38 @@
   background: var(--primary-gold-brown);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(122, 83, 44, 0.25);
+}
+
+.city-modal-contact {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.city-modal-contact .city-modal-btn {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.city-modal-btn--outline {
+  background: transparent;
+  color: var(--accent-rose-mauve);
+  border: 2px solid var(--accent-rose-mauve);
+  padding: 12px;
+  box-shadow: none;
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+
+.city-modal-btn--outline:hover {
+  background: var(--accent-rose-mauve);
+  color: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .city-modal-contact {
+    flex-direction: column;
+  }
 }
 
 @keyframes fadeIn {
