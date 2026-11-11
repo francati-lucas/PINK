@@ -1189,6 +1189,97 @@
   font-weight: 600;
 }
 
+/* Agenda em cards por mês */
+.city-agenda-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary-gold-brown);
+}
+
+.city-agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+  gap: 14px 8px;
+  padding-top: 6px;
+}
+
+.city-agenda-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 78px;
+  padding: 10px 4px 9px;
+  border-radius: 12px;
+  border: 2px solid var(--primary-gold-brown);
+  background-color: var(--primary-gold-brown);
+  color: #ffffff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.city-agenda-month {
+  font-family: var(--heading);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.1;
+}
+
+.city-agenda-day {
+  font-family: var(--heading);
+  font-weight: 900;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: #F7D3E3;
+}
+
+.city-agenda-day.is-multi {
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.city-agenda-note {
+  font-size: 0.66rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Datas especiais: dois dias, Pink Love, aniversário... */
+.city-agenda-card.is-special {
+  background-color: #ffffff;
+  color: var(--primary-gold-brown);
+}
+
+.city-agenda-card.is-special .city-agenda-day {
+  color: var(--accent-rose-mauve);
+}
+
+.city-agenda-card.is-next {
+  box-shadow: 0 0 0 3px var(--accent-rose-mauve);
+}
+
+.city-agenda-next {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 8px;
+  line-height: 1;
+  border-radius: 999px;
+  background-color: var(--accent-rose-mauve);
+  color: #ffffff;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .city-modal-btn {
   display: flex;
   align-items: center;
@@ -1215,14 +1306,15 @@
   box-shadow: 0 10px 20px rgba(122, 83, 44, 0.25);
 }
 
+/* Um botão embaixo do outro: o @ de cada cidade tem tamanho diferente */
 .city-modal-contact {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   margin-bottom: 28px;
 }
 
 .city-modal-contact .city-modal-btn {
-  flex: 1;
   box-sizing: border-box;
 }
 
@@ -1242,8 +1334,12 @@
 }
 
 @media (max-width: 480px) {
-  .city-modal-contact {
-    flex-direction: column;
+  .city-modal-details {
+    padding: 14px 12px;
+  }
+
+  .city-agenda-grid {
+    grid-template-columns: repeat(auto-fill, minmax(66px, 1fr));
   }
 }
 

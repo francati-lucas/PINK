@@ -3,6 +3,7 @@ import '../styles/PinkApoio.css';
 import minRecepcao from '../assets/min_recepcao.JPG';
 import minMidias from '../assets/min_midias.JPG';
 import minIntercessao from '../assets/min_intercessao.JPG';
+import fotoEquipe from '../assets/apoio_equipe.jpg';
 
 const equipes = [
   {
@@ -40,6 +41,17 @@ const PinkApoio = () => {
         Venha servir conosco em diversas equipes que preparam tudo para os encontros mensais. Desde a recepção, decoração, loja, PINK Café, Banda/Louvor e Muito mais. Coloque o seu dom de servir para abençoar mulheres no país inteiro.  
         </p>
         <div className="pink-apoio-hero-line"></div>
+      </section>
+
+      {/* ── Foto da equipe ── */}
+      <section className="pink-apoio-photo-section">
+        <figure className="pink-apoio-photo">
+          <img
+            src={fotoEquipe}
+            alt="Equipe do PINK Apoio reunida no palco da Conferência PINK Love"
+          />
+          <figcaption>Equipe PINK Apoio na Conferência PINK Love</figcaption>
+        </figure>
       </section>
 
       {/* ── Cards ── */}

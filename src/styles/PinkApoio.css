@@ -68,6 +68,38 @@
   border-radius: 99px;
 }
 
+/* ── Foto da equipe ── */
+.pink-apoio-photo-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 20px 0;
+}
+
+.pink-apoio-photo {
+  margin: 0;
+}
+
+.pink-apoio-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: center 70%; /* corta o teto e o chão, mantém o telão e a equipe */
+  border-radius: 20px;
+  border: 8px solid #ffffff;
+  box-shadow: 0 15px 35px rgba(122, 83, 44, 0.12);
+  box-sizing: border-box;
+}
+
+.pink-apoio-photo figcaption {
+  margin-top: 16px;
+  text-align: center;
+  font-family: var(--heading);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
 /* ── Cards Section ── */
 .pink-apoio-grid-section {
   max-width: 1200px;
@@ -272,6 +304,13 @@
   }
   .pink-apoio-hero::before {
     font-size: 7rem;
+  }
+  .pink-apoio-photo-section {
+    padding-top: 50px;
+  }
+  .pink-apoio-photo img {
+    aspect-ratio: 4 / 3;
+    border-width: 6px;
   }
   .pink-apoio-values-grid {
     grid-template-columns: 1fr;

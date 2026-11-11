@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import '../styles/Home.css'
 import '../styles/Series.css'
@@ -11,8 +11,9 @@ import imgGurupi from '../assets/gurupi.jpg'
 import imgParaupebas from '../assets/recife.jpg'
 import imgSerra from '../assets/serra.jpg'
 import imgQuemE from '../assets/9.JPEG'
-import imgPinkMais from '../assets/pink+.JPG'
-import imgCardAmor from '../assets/card_amor.jpg'
+import imgCampinasE1 from '../assets/campinas_encontro1.jpg'
+import imgCampinasE2 from '../assets/campinas_encontro2.jpg'
+import imgCampinasE3 from '../assets/campinas_encontro3.jpg'
 import imgLiderCampinas from '../assets/9.JPEG'
 import imgSerraE from '../assets/SerraE.jpg'
 import imgSerraE2 from '../assets/SerraE2.jpg'
@@ -38,11 +39,49 @@ const scrollToSection = (id) => document.getElementById(id)?.scrollIntoView({ be
 const instagramHandle = (value) =>
   value.trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/^@/, '').replace(/[/?].*$/, '')
 
+const MONTHS = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
+const MONTH_NAMES = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+
+// Transforma a agenda do admin ("28/Fev, 19 e 20/Jun - Pink Love (20h)") em cards por mês.
+// Se algum trecho não seguir o formato "dia/Mês", retorna null e o modal mostra o texto como está.
+// As datas não têm ano: considera o ano atual para achar o próximo encontro.
+const parseSchedule = (text) => {
+  if (!text) return null
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  const agenda = text.split(',').map((s) => s.trim()).filter(Boolean).map((item) => {
+    const match = item.match(/^(\d{1,2}(?:\s*(?:e|a|-)\s*\d{1,2})?)\s*\/\s*([a-zç]+)\.?(.*)$/i)
+    if (!match) return null
+    const monthIndex = MONTHS.indexOf(match[2].slice(0, 3).toLowerCase())
+    if (monthIndex === -1) return null
+
+    const days = match[1].replace(/\s+/g, ' ')
+    const lastDay = Number(days.match(/\d+/g).pop())
+    const extras = [...match[3].matchAll(/\(([^)]*)\)/g)].map((m) => m[1].trim())
+    const label = match[3].replace(/\([^)]*\)/g, '').replace(/^[\s–-]+|[\s–-]+$/g, '').trim()
+    const multi = /\D/.test(days)
+
+    return {
+      month: MONTH_NAMES[monthIndex],
+      days,
+      multi,
+      note: [label, ...extras].filter(Boolean).join(' · '),
+      // Datas de dois dias ou com evento (Pink Love, Aniversário...) ganham destaque; horário sozinho não
+      special: multi || Boolean(label) || extras.some((e) => !/^\d{1,2}h(\d{2})?$/i.test(e)),
+      past: new Date(today.getFullYear(), monthIndex, lastDay) < today,
+    }
+  })
+
+  return agenda.length && agenda.every(Boolean) ? agenda : null
+}
+
 const cityExtraData = {
   campinas: {
     leaderName: 'Jordania, Nadja, Marta e Eidy',
     leaderPhoto: imgLiderCampinas,
-    meetingPhotos: [imgCampinas, imgPinkMais, imgCardAmor],
+    // { src, position } ajusta o enquadramento da miniatura (ex.: rosto no alto da foto)
+    meetingPhotos: [{ src: imgCampinasE1, position: 'center 25%' }, imgCampinasE2, imgCampinasE3],
     instagram: 'pinkmovimento'
   },
   gurupi: {
@@ -74,6 +113,12 @@ const Home = () => {
   const [meetingsList, setMeetingsList] = useState([])
   const [newCity, setNewCity] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
+
+  // Link "Encontros" do header (/#encontros): rola até a seção, vindo de qualquer página
+  useEffect(() => {
+    if (location.hash === '#encontros') scrollToSection('encontros')
+  }, [location])
 
   const handleNewCity = (e) => {
     e.preventDefault()
@@ -137,6 +182,9 @@ const Home = () => {
     ? instagramHandle(selectedMeeting.instagram || cityExtraData[selectedMeeting.key]?.instagram || '')
     : ''
 
+  const cityAgenda = selectedMeeting ? parseSchedule(selectedMeeting.schedule) : null
+  const nextMeetingIndex = cityAgenda ? cityAgenda.findIndex((item) => !item.past) : -1
+
   return (
     <>
       <main>
@@ -174,7 +222,7 @@ const Home = () => {
               <h2>Aqui, você não está sozinha.</h2>
               <div className="hero-buttons">
                 <button className="btn btn-primary" onClick={() => scrollToSection('about')}>Conhecer o PINK</button>
-                <button className="btn btn-secondary" onClick={() => scrollToSection('meetings')}>Nossos Encontros</button>
+                <button className="btn btn-secondary" onClick={() => scrollToSection('encontros')}>Nossos Encontros</button>
               </div>
             </div>
           </div>
@@ -239,7 +287,7 @@ const Home = () => {
                     Uma vez por mês, as mulheres de cada cidade se reúnem para um encontro com louvor, palavra,
                     oração e comunhão, preparado com carinho pelas equipes do PINK Apoio.
                   </p>
-                  <button className="btn-outline-pink" onClick={() => scrollToSection('meetings')}>Ver encontros</button>
+                  <button className="btn-outline-pink" onClick={() => scrollToSection('encontros')}>Ver encontros</button>
                 </div>
 
                 <div className="format-card">
@@ -282,7 +330,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="meetings" className="meetings">
+        <section id="encontros" className="meetings">
           <div className="container">
             <div className="section-header">
               <h2>Nossos encontros</h2>
@@ -402,10 +450,33 @@ const Home = () => {
               <span className="city-modal-tag">Encontro Mensal</span>
               <h2>{selectedMeeting.city}</h2>
               <div className="city-modal-details">
-                <div className="city-detail-item">
-                  <strong>Agenda:</strong>
-                  <span>{selectedMeeting.schedule}</span>
-                </div>
+                {cityAgenda ? (
+                  <>
+                    <strong className="city-agenda-title">Agenda dos encontros</strong>
+                    <div className="city-agenda-grid">
+                      {cityAgenda.map((item, i) => (
+                        <div
+                          key={i}
+                          className={[
+                            'city-agenda-card',
+                            item.special && 'is-special',
+                            i === nextMeetingIndex && 'is-next',
+                          ].filter(Boolean).join(' ')}
+                        >
+                          {i === nextMeetingIndex && <span className="city-agenda-next">Próximo</span>}
+                          <span className="city-agenda-month">{item.month}</span>
+                          <span className={`city-agenda-day${item.multi ? ' is-multi' : ''}`}>{item.days}</span>
+                          {item.note && <span className="city-agenda-note">{item.note}</span>}
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <div className="city-detail-item">
+                    <strong>Agenda:</strong>
+                    <span>{selectedMeeting.schedule}</span>
+                  </div>
+                )}
               </div>
 
               <div className="city-modal-contact">
@@ -448,14 +519,17 @@ const Home = () => {
                 <div className="city-modal-gallery">
                   <h4 className="city-modal-gallery-title">Registros dos Encontros</h4>
                   <div className="city-modal-gallery-grid">
-                    {cityExtraData[selectedMeeting.key].meetingPhotos.map((photo, i) => (
-                      <div
-                        key={i}
-                        className="city-modal-gallery-img"
-                        style={{ backgroundImage: `url(${photo})` }}
-                        onClick={() => setActivePhoto(photo)}
-                      />
-                    ))}
+                    {cityExtraData[selectedMeeting.key].meetingPhotos.map((photo, i) => {
+                      const src = photo.src || photo
+                      return (
+                        <div
+                          key={i}
+                          className="city-modal-gallery-img"
+                          style={{ backgroundImage: `url(${src})`, backgroundPosition: photo.position }}
+                          onClick={() => setActivePhoto(src)}
+                        />
+                      )
+                    })}
                   </div>
                 </div>
               )}

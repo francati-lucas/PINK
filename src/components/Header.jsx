@@ -44,6 +44,9 @@ const Header = () => {
           <Link to="/" className="header__nav-link" onClick={() => setIsOpen(false)}>
             Home
           </Link>
+          <Link to="/#encontros" className="header__nav-link" onClick={() => setIsOpen(false)}>
+            Encontros
+          </Link>
           <Link to="/missoes" className="header__nav-link" onClick={() => setIsOpen(false)}>
             Missões
           </Link>
