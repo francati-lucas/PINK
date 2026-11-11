@@ -28,8 +28,8 @@ const Semei = () => {
     <main className="semei-page">
       {/* ── Hero ── */}
       <section className="semei-hero">
-        <span className="semei-hero-tag">Parceria</span>
-        <h1>SEMEI</h1>
+        <span className="semei-hero-tag">Doe com amor</span>
+        <h1>Parceria</h1>
         <p>
           A parceria é uma forma de você poder contribuir tanto durante os nossos{' '}
           <strong>Encontros Presenciais</strong> quanto <strong>Online</strong>.

@@ -73,12 +73,12 @@ const Header = () => {
           </Link>
 
           <Link
-            to="/semei"
+            to="/parceria"
             className="header__semei-button"
             style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
             onClick={() => setIsOpen(false)}
           >
-            SEMEI
+            Parceria
           </Link>
         </nav>
       </div>

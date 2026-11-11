@@ -27,6 +27,8 @@ function App() {
         <Route path="/loja" element={<Loja />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/contato" element={<Contato />} />
+        <Route path="/parceria" element={<Semei />} />
+        {/* Endereço antigo da página, mantido para links já compartilhados */}
         <Route path="/semei" element={<Semei />} />
         <Route path="/pink-home" element={<PinkHome />} />
         <Route path="/pink-love" element={<PinkLove />} />
